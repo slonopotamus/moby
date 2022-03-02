@@ -9,7 +9,7 @@ jobs:
       - run: docker pull mcr.microsoft.com/windows/servercore:ltsc2019
       - run: docker tag mcr.microsoft.com/windows/servercore:ltsc2019 microsoft/windowsservercore
       - run: docker build -t nativebuildimage -f .\Dockerfile.windows .
-      - run: docker run --name binaries -e DOCKER_GITCOMMIT=$env:GITHUB_SHA -e VERSION=2.10.12.1 nativebuildimage hack\make.ps1 -Binary
+      - run: docker run --name binaries -e DOCKER_GITCOMMIT=$env:GITHUB_SHA -e VERSION=2.10.12.1 -e PRODUCT=Shmoby nativebuildimage hack\make.ps1 -Binary
       - run: docker cp binaries:C:\gopath\src\github.com\docker\docker\bundles\dockerd.exe dockerd.exe
       - name: upload artifact
         uses: actions/upload-artifact@v2
