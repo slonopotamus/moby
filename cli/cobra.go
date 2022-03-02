@@ -19,7 +19,7 @@ func SetupRootCommand(rootCmd *cobra.Command) {
 	rootCmd.SetUsageTemplate(usageTemplate)
 	rootCmd.SetHelpTemplate(helpTemplate)
 	rootCmd.SetFlagErrorFunc(FlagErrorFunc)
-	rootCmd.SetVersionTemplate("Docker version {{.Version}}\n")
+	rootCmd.SetVersionTemplate("Shmoby version {{.Version}}\n")
 
 	rootCmd.PersistentFlags().BoolP("help", "h", false, "Print usage")
 	rootCmd.PersistentFlags().MarkShorthandDeprecated("help", "please use --help")
